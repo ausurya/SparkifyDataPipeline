@@ -24,7 +24,7 @@ class LoadDimensionOperator(BaseOperator):
         #get the redshift hook
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         
-        self.log.info('Create Fact Table')
+        self.log.info('Create Dimension Table')
         redshift.run(format(self.create_table_sql))
         
         #deleting and inserting here because it's a dimension table
